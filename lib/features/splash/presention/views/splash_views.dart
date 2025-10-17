@@ -1,4 +1,4 @@
-import 'package:dalelapp/core/function/navigate.dart' show customNavigate;
+import 'package:dalelapp/core/function/navigate.dart';
 import 'package:dalelapp/core/utils/app_strings.dart';
 import 'package:dalelapp/core/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
@@ -33,6 +33,6 @@ class _SplashViewsState extends State<SplashViews> {
 
 void delayednavigation(context) {
   Future.delayed(Duration(seconds: 3), () {
-    customNavigate(context, "/onBoarding");
+    CustomReplacementNavigate(context, "/onBoarding");
   });
 }

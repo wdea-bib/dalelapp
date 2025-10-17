@@ -2,8 +2,8 @@ import 'package:dalelapp/core/utils/app_strings.dart';
 import 'package:dalelapp/core/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
-class customnavbar extends StatelessWidget {
-  const customnavbar({super.key});
+class Customnavbar extends StatelessWidget {
+  const Customnavbar({super.key});
 
   @override
   Widget build(BuildContext context) {

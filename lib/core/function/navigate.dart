@@ -1,5 +1,9 @@
 import 'package:go_router/go_router.dart';
 
-void customNavigate(context, Path) {
-  GoRouter.of(context).push(Path);
+void CustomNavigate(context, path) {
+  GoRouter.of(context).push(path);
+}
+
+void CustomReplacementNavigate(context, path) {
+  GoRouter.of(context).pushReplacement(path);
 }

@@ -10,14 +10,25 @@ class OnboardingWidgetbody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return SizedBox(
+      height: 500,
       child: PageView.builder(
+        physics: BouncingScrollPhysics(),
         controller: _controller,
         itemCount: 3,
         itemBuilder: (context, index) {
           return Column(
             children: [
-              Image.asset(Assets.assetsImagesOnBoarding2),
+              Container(
+                height: 290,
+                width: 343,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(Assets.assetsImagesOnBoarding1),
+                    fit: BoxFit.fill,
+                  ),
+                ),
+              ),
               SizedBox(height: 25),
               CustomSmoothPageIndecator(controller: _controller),
               SizedBox(height: 25),
@@ -26,6 +37,8 @@ class OnboardingWidgetbody extends StatelessWidget {
                 "hello to  bsdbdhd hdhd hdkj djkdd kdj;q;ljfk nchghbryhfcnbna",
                 style: CustomTextStyles.poppins600style28,
                 textAlign: TextAlign.center,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
               ),
               SizedBox(height: 25),
               Text(
