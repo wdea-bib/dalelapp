@@ -1,11 +1,19 @@
-import 'package:dalelapp/core/utils/app_strings.dart';
-import 'package:dalelapp/core/widgets/custom_btn.dart';
+import 'package:dalelapp/core/function/navigate.dart';
 import 'package:dalelapp/features/on_boarding/presention/views/widgets/custom_nav_bar.dart';
+import 'package:dalelapp/features/on_boarding/presention/views/widgets/get_buttons.dart';
 import 'package:dalelapp/features/on_boarding/presention/views/widgets/onboarding_widgetbody.dart';
 import 'package:flutter/material.dart';
 
-class OnBoardingViews extends StatelessWidget {
+class OnBoardingViews extends StatefulWidget {
   const OnBoardingViews({super.key});
+
+  @override
+  State<OnBoardingViews> createState() => _OnBoardingViewsState();
+}
+
+class _OnBoardingViewsState extends State<OnBoardingViews> {
+  final PageController _controller = PageController(initialPage: 0);
+  int currentindex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -17,10 +25,22 @@ class OnBoardingViews extends StatelessWidget {
             physics: BouncingScrollPhysics(),
             children: [
               SizedBox(height: 40),
-              Customnavbar(),
-              OnboardingWidgetbody(),
+              Customnavbar(
+                onTap: () {
+                  CustomReplacementNavigate(context, "/signUp");
+                },
+              ),
+              OnboardingWidgetbody(
+                onPageChanged: (index) {
+                  setState(() {
+                    currentindex = index;
+                  });
+                },
+                controller: _controller,
+              ),
               SizedBox(height: 90),
-              CustomBtn(text: AppStrings.next),
+              GetButtons(currentIndex: currentindex, controller: _controller),
+
               SizedBox(height: 17),
             ],
           ),
