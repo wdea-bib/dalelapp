@@ -1,4 +1,7 @@
+import 'package:dalelapp/core/database/cache/cache_helper.dart';
 import 'package:dalelapp/core/function/navigate.dart';
+import 'package:dalelapp/core/services/services_locator.dart';
+import 'package:dalelapp/features/on_boarding/presention/views/functions/on_boarding.dart';
 import 'package:dalelapp/features/on_boarding/presention/views/widgets/custom_nav_bar.dart';
 import 'package:dalelapp/features/on_boarding/presention/views/widgets/get_buttons.dart';
 import 'package:dalelapp/features/on_boarding/presention/views/widgets/onboarding_widgetbody.dart';
@@ -27,6 +30,8 @@ class _OnBoardingViewsState extends State<OnBoardingViews> {
               SizedBox(height: 40),
               Customnavbar(
                 onTap: () {
+                  onBoardingVisited();
+
                   CustomReplacementNavigate(context, "/signUp");
                 },
               ),
